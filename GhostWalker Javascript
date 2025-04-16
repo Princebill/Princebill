@@ -1,0 +1,92 @@
+```
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+
+public class GhostWalker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String reviewerName = "Ghost-Walker";
+
+        System.out.println("👻 " + reviewerName);
+        System.out.println("Construction Date: " + getTodayDate());
+        System.out.println("Fecha de Construcción: " + getTodayDateSpanish());
+
+        System.out.println("Device History Reviewer");
+        System.out.println("---------------------------");
+        System.out.println("Reviewer: " + reviewerName);
+        System.out.println();
+
+        while (true) {
+            System.out.println("Choose an option:");
+            System.out.println("1. Display device history");
+            System.out.println("2. Send file to IP address or host address");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline left-over
+
+            switch (choice) {
+                case 1:
+                    displayDeviceHistory();
+                    break;
+                case 2:
+                    sendFile();
+                    break;
+                case 3:
+                    System.out.println("Exiting program.");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        }
+    }
+
+    private static String getTodayDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
+        return dateFormat.format(new Date());
+    }
+
+    private static String getTodayDateSpanish() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd de MMMM de yyyy");
+        return dateFormat.format(new Date());
+    }
+
+    private static void displayDeviceHistory() {
+        System.out.println("Device History");
+        System.out.println("----------------");
+        System.out.println("IP Address: 192.168.1.100"); // Replace with actual IP address
+        System.out.println("Time Usage (Uptime): 12 hours 30 minutes"); // Replace with actual uptime
+        System.out.println("Network Host: localhost"); // Replace with actual network host
+        System.out.println();
+
+        System.out.println("Calls:");
+        System.out.println("  Dialed: 1234567890, 9876543210");
+        System.out.println("  Received: 5551234567, 6543210987");
+        System.out.println("  Missed: 7890123456, 3210987654");
+        System.out.println();
+
+        System.out.println("Messages:");
+        System.out.println("  Sent: Hello, world!, This is a test message.");
+        System.out.println("  Received: Hi, how are you?, I'm good, thanks.");
+        System.out.println("  Outbox: Message 1, Message 2");
+        System.out.println();
+
+        System.out.println("File Management:");
+        System.out.println("  Documents: file1.txt, file2.pdf");
+        System.out.println("  Music: song1.mp3, song2.wav");
+        System.out.println("  Videos: video1.mp4, video2.avi");
+        System.out.println("  Pictures: image1.jpg, image2.png");
+    }
+
+    private static void sendFile() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter IP address or host address: ");
+        String address = scanner.nextLine();
+        System.out.print("Enter file path: ");
+        String filePath = scanner.nextLine();
+
+        System.out.println("Sending file " + filePath + " to " + address + "...");
+    }
+}
+```
